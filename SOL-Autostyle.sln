@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autostyle", "Autostyle\Autostyle.csproj", "{FA2CD7B9-40A8-4805-8B50-80FA448133EF}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Signs Of Life - SOLPI", "D:\SteamLibrary\SteamApps\common\Signs of Life\Signs Of Life - SOLPI.exe", "{490E5960-3262-4EC6-B69D-381D33863699}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = D:\SteamLibrary\SteamApps\common\Signs of Life\Signs Of Life - SOLPI.exe
+		RemoteMachine = ITAROS-PC
+		StartingDirectory = D:\SteamLibrary\SteamApps\common\Signs of Life
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Debug|x86.Build.0 = Debug|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FA2CD7B9-40A8-4805-8B50-80FA448133EF}.Release|x86.ActiveCfg = Release|Any CPU
+		{490E5960-3262-4EC6-B69D-381D33863699}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{490E5960-3262-4EC6-B69D-381D33863699}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{490E5960-3262-4EC6-B69D-381D33863699}.Debug|x86.ActiveCfg = Debug|x86
+		{490E5960-3262-4EC6-B69D-381D33863699}.Release|Any CPU.ActiveCfg = Debug|x86
+		{490E5960-3262-4EC6-B69D-381D33863699}.Release|Mixed Platforms.ActiveCfg = Debug|x86
+		{490E5960-3262-4EC6-B69D-381D33863699}.Release|x86.ActiveCfg = Debug|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

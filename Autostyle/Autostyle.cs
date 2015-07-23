@@ -18,6 +18,7 @@ namespace Autostyle
         {
             registry.Register<TrayBasket>(TrayBasket.ID);
             registry.Register<TechBlowbot>(TechBlowbot.ID);
+            registry.Register<ChargableBattery>(ChargableBattery.ID);
         }
 
         public override void InitRecipes(RecipeRegistry registry)

@@ -83,9 +83,29 @@ namespace Autostyle.Projects
         }
 
         public float EngineSpeed { get; private set; }
+        public float FuelLast { get; private set; }
 
         public override void Update(GameTime gameTime)
         {
+            float seconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (FuelLast <= 0F)
+            {
+                if (EngineSpeed > 0)
+                {
+                    EngineSpeed -= seconds * 1F;
+                }
+                else
+                {
+                    EngineSpeed = 0F;
+                }
+                FuelLast = _gump.TryPickFuel() ? 100F : 0F;
+            }
+            else
+            {
+                FuelLast -= seconds * 5F;
+                EngineSpeed += seconds * 0.1F;
+                _gump.TryCharge(seconds);
+            }
 
             animationTick += EngineSpeed*4F*(float)gameTime.ElapsedGameTime.TotalSeconds;
 

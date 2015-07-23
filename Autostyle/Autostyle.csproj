@@ -76,6 +76,7 @@
     <Compile Include="Autostyle.cs" />
     <Compile Include="Commons.cs" />
     <Compile Include="GUMPs\GUMP_CombustionGenerator.cs" />
+    <Compile Include="Items\ChargableBattery.cs" />
     <Compile Include="Items\Robots\TechBlowbot.cs" />
     <Compile Include="Items\TrayBasket.cs" />
     <Compile Include="Projects\CombustionGenerator.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Recipes.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="battery.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="combustion.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

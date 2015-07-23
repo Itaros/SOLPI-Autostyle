@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Autostyle.Items;
+using Microsoft.Xna.Framework;
 using SignsOfLife;
 using SignsOfLife.Entities.Items;
+using SignsOfLife.Network;
 using SignsOfLife.UI;
 using SignsOfLife.UI.Gumps;
 using System;
@@ -20,6 +22,7 @@ namespace Autostyle.GUMPs
         private Color _textColor = new Color(255, 102, 0);
 
         private SubContainer _fuelSC;
+        private SubContainer _batsSC;
 
         protected List<SubContainer> _itemSubContainers = new List<SubContainer>();
 
@@ -30,8 +33,10 @@ namespace Autostyle.GUMPs
             _itemBounds = new Rectangle(0, 0, this._spriteBounds.Width, this._spriteBounds.Height);
 
             _fuelSC = new SubContainer(new Rectangle(183, 131, 50, 50));
+            _batsSC = new SubContainer(new Rectangle(89, 226, 78, 35));
 
             _itemSubContainers.Add(_fuelSC);
+            _itemSubContainers.Add(_batsSC);
 
             this._minimizeButton = new GraphicalButton(new Vector2(227f, 27f), GUMP_SHEET, GUMP_SHEET_DICT, null, "menu_min_press", "menu_min_hover", null, "menu_min_press", "menu_min_hover");
             this._minimizeButton.Pressed += new ButtonPressedHandler(base.MinimizeButtonPressed);
@@ -50,6 +55,7 @@ namespace Autostyle.GUMPs
         }
         public override void RemoveItem(InventoryItem item, bool transmitOverNetwork)
         {
+            _currentlyCharging = null;
             base.RemoveItem(item, transmitOverNetwork);
             foreach (SubContainer current in this._itemSubContainers)
             {
@@ -124,5 +130,47 @@ namespace Autostyle.GUMPs
 
         }
 
+        private ChargableBattery _currentlyCharging;
+        public void TryCharge(float amount)
+        {
+            if (_currentlyCharging == null)
+            {
+                var listop = _batsSC.Contents;
+                if (listop.Count > 0)
+                {
+                    _currentlyCharging = _batsSC.Contents[0] as ChargableBattery;
+                }
+            }
+            else
+            {
+                _currentlyCharging.Charge += amount*250F;
+                if (_currentlyCharging.Charge > ChargableBattery.MaxCharge)
+                {
+                    _currentlyCharging.Charge = ChargableBattery.MaxCharge;
+                    _currentlyCharging = null;
+                }
+            }
+        }
+
+        public bool TryPickFuel()
+        {
+            var listop = _fuelSC.Contents;
+            if (listop.Count > 0)
+            {
+                var stack = listop[0];
+                stack.Amount -= 1;
+                //SteamNetworkServer.SendItemAmountToPeers(SpaceGame._playerEntity, stack);
+                if (stack.Amount <= 0)
+                {
+                    RemoveItem(stack,false);
+                    //stack.RemoveSelf();
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -40,14 +40,26 @@ namespace Autostyle.GUMPs
         }
 
 
-       // public override void moveItem(InventoryItem item, int localX, int localY)
-       // {
-       //     base.moveItem(item, localX, localY);
-       //     if (CanDropAtLocal(localX, localY))
-       //     {
-       //         HandleItemAddedToSubContainer(item,localX,localY);
-       //     }
-       // }
+        public override void moveItem(InventoryItem item, int localX, int localY, bool adjust)
+        {
+            base.moveItem(item, localX, localY, adjust);
+            if (CanDropAtLocal(localX, localY))
+            {
+                HandleItemAddedToSubContainer(item,localX,localY);
+            }
+        }
+        public override void RemoveItem(InventoryItem item, bool transmitOverNetwork)
+        {
+            base.RemoveItem(item, transmitOverNetwork);
+            foreach (SubContainer current in this._itemSubContainers)
+            {
+                if (current.Contents.Contains(item))
+                {
+                    current.Contents.Remove(item);
+                }
+            }
+        }
+
 
         public override void HandleItemAddedToSubContainer(InventoryItem item, int localX, int localY)
 		{

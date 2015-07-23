@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SignsOfLife;
+using SignsOfLife.Entities.Items;
 using SignsOfLife.Entities.Items.Containers;
 using SignsOfLife.Prefabs.StaticPrefabs;
 using SOLPolymorph.SignsOfLife.Polymorph.Utilities;
@@ -81,14 +82,15 @@ namespace Autostyle.Projects
 
         }
 
+        public float EngineSpeed { get; private set; }
+
         public override void Update(GameTime gameTime)
         {
 
-            animationTick += 4F*(float)gameTime.ElapsedGameTime.TotalSeconds;
+            animationTick += EngineSpeed*4F*(float)gameTime.ElapsedGameTime.TotalSeconds;
 
             base.Update(gameTime);
         }
-
 
         public override void RightClicked(float globalMouseX, float globalMouseY)
         {
